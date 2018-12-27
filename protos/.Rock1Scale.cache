@@ -1,0 +1,10 @@
+Webots Proto Cache File version 1.3
+protoFileHash: fdb3a2a66ead33268a8fc878bb985829
+containsDevices: 0
+baseType: Solid
+slotType: 
+parameters: translation,rotation,scale,name,texture,color,ambientIntensity,physics,locked
+tags: 
+license:  Copyright Cyberbotics Ltd. Licensed for use only with Webots.
+licenseUrl:  https://cyberbotics.com/webots_assets_license
+info: A\srock.\n

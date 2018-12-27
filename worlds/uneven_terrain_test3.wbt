@@ -1,0 +1,186 @@
+#VRML_SIM R2018b utf8
+WorldInfo {
+}
+Viewpoint {
+  orientation 0.01647234453686653 0.9319746880071054 0.36214892348247735 3.2263236656493213
+  position 27.910354186439235 147.24041159777607 -230.37130166360984
+}
+TexturedBackground {
+}
+DirectionalLight {
+  direction 0.1 -0.9 0.3
+  castShadows TRUE
+}
+UnevenTerrainGenerator {
+  translation 0 0 20
+  size 100 20 100
+  map "map3.png"
+  texture [
+    "textures/mars.jpg"
+  ]
+  locked TRUE
+}
+DEF pioneer pioneer3atv2 {
+  translation 50.353524158885335 0 -50.35684587040401
+  rotation 0 -0.9999999999999999 0 2.6179939083591734
+  controller "ros"
+  controllerArgs "--name=pioneer3at"
+  scale 2 2 2
+  extensionSlot [
+    HokuyoUtm30lx {
+      translation 0 0.23 -0.136
+      rotation -1 0 0 0.25
+      noise 0.1
+    }
+    Compass {
+    }
+    Camera {
+      translation 0 0.17 -0.22
+      width 256
+      height 128
+      motionBlur 500
+      noise 0.02
+    }
+    Accelerometer {
+      lookupTable [
+        -39.24 -39.24 0.005
+        39.24 39.24 0.005
+      ]
+    }
+    Gyro {
+      lookupTable [
+        -50 -50 0.005
+        50 50 0.005
+      ]
+    }
+    GPS {
+    }
+    InertialUnit {
+      physics Physics {
+      }
+    }
+  ]
+}
+Tennis {
+  translation 46.39000000000001 8.180000000000009 45.41999999999996
+}
+Rock1Scale {
+  translation 46.39000000000001 7.580000000000012 45.41999999999996
+  scale 10 10 10
+}
+Rock1Scale {
+  translation 40 7.520000000000012 23.1
+  scale 8 8 8
+  name "rock 10 cm(1)"
+}
+Rock1Scale {
+  translation 60 6.560000000000002 50
+  name "rock 10 cm(2)"
+}
+Rock2Scale {
+  translation 80 5.400000000000002 36.31
+  scale 7 7 7
+}
+Rock2Scale {
+  translation 24.95999999999999 8.11 34.58999999999998
+  name "rock 17 cm(1)"
+}
+Rock2Scale {
+  translation 31.799999999999986 5.690000000000001 78.83999999999997
+  name "rock 17 cm(2)"
+  scale 5 5 5
+}
+SolidBox {
+  translation 49.600000000000136 0.34000000000000025 -139.73000000000002
+  size 100 2 2
+  appearance Appearance {
+    material Material {
+    }
+    texture ImageTexture {
+      url [
+        "textures/wood.jpg"
+      ]
+    }
+  }
+}
+SolidBox {
+  translation -31.61 0.34000000000000025 -78.56999999999998
+  name "box(4)"
+  size 20 2 15
+  appearance Appearance {
+    material Material {
+    }
+    texture ImageTexture {
+      url [
+        "textures/wood.jpg"
+      ]
+    }
+  }
+}
+RectangleArena {
+  translation 49.939999999999976 -0.6499999999999984 -45.54000000000003
+  floorSize 100 100
+  floorTextureUrl [
+    "textures/sand.jpg"
+  ]
+}
+RubberDuck {
+  translation 30.86 -0.31000000000000033 -76.18999999999997
+  scale 10
+}
+SolidBox {
+  translation -43.00999988238131 0.34000000000000025 -45.80000044597335
+  rotation 0 1 0 1.5707963220000003
+  name "box(1)"
+  size 100 2 2
+  appearance Appearance {
+    material Material {
+    }
+    texture ImageTexture {
+      url [
+        "textures/wood.jpg"
+      ]
+    }
+  }
+}
+SolidBox {
+  translation -34.78999976634473 0.34000000000000025 -45.12000040655932
+  rotation 0 1 0 1.5707963220000003
+  name "box(2)"
+  size 100 2 2
+  appearance Appearance {
+    material Material {
+    }
+    texture ImageTexture {
+      url [
+        "textures/wood.jpg"
+      ]
+    }
+  }
+}
+SolidBox {
+  translation 50 0.34000000000000025 -130.53000000000006
+  name "box(3)"
+  size 100 2 2
+  appearance Appearance {
+    material Material {
+    }
+    texture ImageTexture {
+      url [
+        "textures/wood.jpg"
+      ]
+    }
+  }
+}
+Tennis {
+  translation 22.529999999999948 7.762499999999971 24.219999999999974
+  name "tennisball(1)"
+  color 0.5411764705882353 0.8862745098039215 0.20392156862745098
+  radius 0.05
+}
+SolidPipe {
+  translation 22.540000000000006 7.52999999999998 24.229999999999997
+  height 0.5
+  radius 0.01
+  thickness 0.5
+}

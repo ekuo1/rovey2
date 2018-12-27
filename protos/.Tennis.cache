@@ -1,0 +1,10 @@
+Webots Proto Cache File version 1.3
+protoFileHash: 3268d1f5bc9cb6c073d51880b1f55e8a
+containsDevices: 0
+baseType: Solid
+slotType: 
+parameters: translation,rotation,name,color,radius,mass,centerOfMass,linearDamping,angularDamping,contactMaterial,physics,locked
+tags: 
+license:  Copyright Cyberbotics Ltd. Licensed for use only with Webots.
+licenseUrl:  https://cyberbotics.com/webots_assets_license
+info: The\sBall's\ssize,\smass\sand\scolor\scorrespond\sto\sthe\ssoccer\sball\sused\sin\sthe\sRobocup\sSPL.\nYou\scan\schange\sthe\scenterOfMass\sto\s[0\s0\s0]\sto\savoid\sthe\srandom\srolling\seffect.\n

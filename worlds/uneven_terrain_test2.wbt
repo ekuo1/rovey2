@@ -1,0 +1,84 @@
+#VRML_SIM R2018b utf8
+WorldInfo {
+  gpsCoordinateSystem "WGS84"
+  gpsReference -111 34 1860
+}
+Viewpoint {
+  orientation -0.9014837030483102 0.4140174192714128 0.12616144291401107 0.5996335690346812
+  position 58.441592523723735 40.475708598717944 89.36955742173397
+}
+TexturedBackground {
+}
+DirectionalLight {
+  direction 0.1 -0.9 0.3
+}
+pioneer3atv2 {
+  translation 33.23 8.520000000000003 40.95000000000003
+  controller "ros"
+  controllerArgs "--name=pioneer3at"
+  scale 2 2 2
+  extensionSlot [
+    Compass {
+    }
+    Camera {
+      translation 0 0.17 -0.22
+      width 256
+      height 128
+      motionBlur 500
+      noise 0.02
+    }
+    Accelerometer {
+      lookupTable [
+        -39.24 -39.24 0.005
+        39.24 39.24 0.005
+      ]
+    }
+    Gyro {
+      lookupTable [
+        -50 -50 0.005
+        50 50 0.005
+      ]
+    }
+    SickLms291 {
+      translation 0 0.23 -0.136
+      noise 0.1
+    }
+    GPS {
+    }
+    InertialUnit {
+    }
+  ]
+}
+Rock1Scale {
+  translation 46.39000000000001 8.180000000000009 45.41999999999996
+  scale 10 10 10
+}
+Rock1Scale {
+  translation 40 8.010000000000002 23.1
+  scale 8 8 8
+  name "rock 10 cm(1)"
+}
+Rock1Scale {
+  translation 60 6.560000000000002 50
+  name "rock 10 cm(2)"
+}
+Rock2Scale {
+  translation 80 5.400000000000002 36.31
+  scale 13 13 13
+}
+Rock2Scale {
+  translation 67.81 6.889999999999996 63.69000000000001
+  name "rock 17 cm(1)"
+}
+Rock2Scale {
+  translation 31.799999999999986 5.690000000000001 78.83999999999997
+  name "rock 17 cm(2)"
+  scale 5 5 5
+}
+RectangleArena {
+  translation 0 8 0
+  floorSize 1000 1000
+  floorTextureUrl [
+    ""
+  ]
+}
