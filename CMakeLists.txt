@@ -230,5 +230,9 @@ add_executable(spiral src/spiral.cpp)
 target_link_libraries(spiral ${catkin_LIBRARIES})
 add_dependencies(spiral rovey2_generate_messages_cpp)
 
+add_executable(obstacle_avoidance src/obstacle_avoidance.cpp)
+target_link_libraries(obstacle_avoidance ${catkin_LIBRARIES})
+add_dependencies(obstacle_avoidance rovey2_generate_messages_cpp)
+
 
 
