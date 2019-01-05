@@ -73,15 +73,15 @@ find_package(catkin REQUIRED COMPONENTS
 # )
 
 ## Generate added messages and services with any dependencies listed here
-generate_messages(
-  DEPENDENCIES
-  webots_ros
-  sensor_msgs
-  std_msgs
-  nav_msgs
+#generate_messages(
+#  DEPENDENCIES
+#  webots_ros
+#  sensor_msgs
+#  std_msgs
+#  nav_msgs
 
 
-  )
+ # )
 
 ################################################
 ## Declare ROS dynamic reconfigure parameters ##
@@ -212,27 +212,30 @@ include_directories(
 
 add_executable(init src/init.cpp)
 target_link_libraries(init ${catkin_LIBRARIES})
-add_dependencies(init rovey2_generate_messages_cpp)
+#add_dependencies(init rovey2_generate_messages_cpp)
 
 add_executable(lidar src/lidar.cpp)
 target_link_libraries(lidar ${catkin_LIBRARIES})
-add_dependencies(lidar rovey2_generate_messages_cpp)
+#add_dependencies(lidar rovey2_generate_messages_cpp)
 
 add_executable(lidar2 src/lidar2.cpp)
 target_link_libraries(lidar2 ${catkin_LIBRARIES})
-add_dependencies(lidar2 rovey2_generate_messages_cpp)
+#add_dependencies(lidar2 rovey2_generate_messages_cpp)
 
 add_executable(lidar_subscribe src/lidar_subscribe.cpp)
 target_link_libraries(lidar_subscribe ${catkin_LIBRARIES})
-add_dependencies(lidar_subscribe rovey2_generate_messages_cpp)
+#add_dependencies(lidar_subscribe rovey2_generate_messages_cpp)
 
 add_executable(spiral src/spiral.cpp)
 target_link_libraries(spiral ${catkin_LIBRARIES})
-add_dependencies(spiral rovey2_generate_messages_cpp)
+#add_dependencies(spiral rovey2_generate_messages_cpp)
 
 add_executable(obstacle_avoidance src/obstacle_avoidance.cpp)
 target_link_libraries(obstacle_avoidance ${catkin_LIBRARIES})
-add_dependencies(obstacle_avoidance rovey2_generate_messages_cpp)
+#add_dependencies(obstacle_avoidance rovey2_generate_messages_cpp)
 
+add_executable(drive src/drive.cpp)
+target_link_libraries(drive ${catkin_LIBRARIES})
+#add_dependencies(drive rovey2_generate_messages_cpp)
 
 

@@ -1,59 +1,57 @@
+//--**--..--**--..--**--..--**--..--**--..--**--..--**--..--**--..--**--
+// Description:
+//  This program reads the rover's initial location at the start
+//  of the search pattern, and generates a list of GPS coordinates
+//  which are shaped in a spiral pattern. THese can be passed to the 
+//  autonomous driving node (hopefully) 
+//--..--**--..--**--..--**--..--**--..--**--..--**--..--**--..--**--..--
+
 #include "ros/ros.h"
-#include <nova_common/DriveCmd.h>
+#include <sensor_msgs/NavSatFix.h>
 
 using namespace std;
 ros::NodeHandle *n;
 
-/*//
-def bearingInDegrees(x, z):
-    rad = math.atan2(x,z)
-    radnorth = math.atan2(1,0) # north vector 1,0,0
-    bearing = (rad-radnorth)/math.pi*180 
+float roveyLat, roveyLng, initLat, initLng;
+bool initInit = false;
 
-    if bearing < 0:
-        bearing = bearing + 360.0
-    return bearing
+void gpsCallback(const sensor_msgs::NavSatFix::ConstPtr& gpsData) {
+    roveyLat = gpsData->latitude;
+    roveyLng = gpsData->longitude;
 
-compass_sub = rospy.Subscriber("/pioneer3at/compass/values", MagneticField, compassCallback)
+}
 
-from sensor_msgs.msg import NavSatFix, MagneticField
-
-def compassCallback(compassData):
-    global rovey_pos
-    x = compassData.magnetic_field.x
-    z = compassData.magnetic_field.z
-    rovey_pos.setOrientation(x,z)
-
-orientation = bearingInDegrees(rovey_pos.x, rovey_pos.z)
-
-
-*/
 int main(int argc, char** argv)
 {
-    
-    ros::init(argc, argv, "spiral_search");
+    ros::init(argc, argv, "spiral");
     n = new ros::NodeHandle;
-    
+    std::vector<float> t; 
+
+    ros::Subscriber gps_sub;
+    gps_sub = n->subscribe("/pioneer3at/gps/values", 10, gpsCallback);
+    ROS_INFO("Topic for gps initialized.");
 
 
-    ros::Publisher drive_pub= n->advertise<nova_common::DriveCmd>("/core_rover/driver/drive_cmd", 1);
+    for (int i = 0; i < 10; i++){
+        t[i] = i*5;
+    }
 
-    float rpm_limit, steer_limit;
-    n->getParam("rpm_limit", rpm_limit);
-    n->getParam("steer_limit", steer_limit);
+    while (ros::ok()){
 
-    float x=10;
+        ros::spinOnce();
 
-    while (ros::ok()) {
+        if(!initInit){
+            initLat = roveyLat;
+            initLng = roveyLng;
 
-        nova_common::DriveCmd drive_msg;
-        drive_msg.rpm = rpm_limit * x;
-        drive_msg.steer_pct = steer_limit * 10* 0.2;
+            initInit = true;
+            
+
+        }
 
         
-        drive_pub.publish(drive_msg);
-        ros::spinOnce();
-  }
 
-    return 0;   
+
+
+    }
 }
